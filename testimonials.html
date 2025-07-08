@@ -1,0 +1,259 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>WebWizard - Client Testimonials</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const testimonials = [
+          {
+            name: "Sarah Johnson",
+            position: "CEO, TechStart Inc.",
+            rating: 5,
+            text: "WebWizard transformed our business with their innovative e-commerce platform. The team was professional, responsive, and delivered beyond our expectations. Our online sales increased by 300% within the first quarter!",
+            image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face"
+          },
+          {
+            name: "Michael Chen",
+            position: "Founder, FitnessFlow",
+            rating: 5,
+            text: "The mobile app they built for us is absolutely incredible. The user experience is seamless, and the AI-powered workout recommendations have our users engaged like never before. Highly recommended!",
+            image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
+          },
+          {
+            name: "Emily Rodriguez",
+            position: "Marketing Director, GreenTech",
+            rating: 5,
+            text: "Working with WebWizard was a game-changer for our company. Their AI customer service agent handles 80% of our inquiries automatically, saving us countless hours and improving customer satisfaction.",
+            image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
+          },
+          {
+            name: "David Thompson",
+            position: "CTO, DataCorp",
+            rating: 5,
+            text: "The data analytics AI they developed for us provides insights we never thought possible. It's like having a team of data scientists working 24/7. The ROI was immediate and substantial.",
+            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+          },
+          {
+            name: "Lisa Wang",
+            position: "Product Manager, FoodExpress",
+            rating: 5,
+            text: "Our food delivery app built by WebWizard is a masterpiece. The real-time tracking, payment integration, and user interface are all top-notch. Our customers love it!",
+            image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face"
+          }
+        ];
+
+        let currentIndex = 0;
+        const testimonialContainer = document.getElementById('testimonialContainer');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dotsContainer = document.getElementById('dotsContainer');
+
+        function renderTestimonial(index) {
+          const testimonial = testimonials[index];
+          testimonialContainer.innerHTML = `
+            <div class="bg-[#444327] rounded-xl p-8 text-center transition-all duration-500">
+              <div class="flex justify-center mb-6">
+                <img src="${testimonial.image}" alt="${testimonial.name}" class="w-20 h-20 rounded-full object-cover border-4 border-[#d3cd2a]">
+              </div>
+              <div class="flex justify-center mb-4">
+                ${'★'.repeat(testimonial.rating)}${'☆'.repeat(5 - testimonial.rating)}
+              </div>
+              <p class="text-[#c3c297] text-lg italic mb-6 leading-relaxed">"${testimonial.text}"</p>
+              <h3 class="text-white text-xl font-bold mb-1">${testimonial.name}</h3>
+              <p class="text-[#d3cd2a] text-sm">${testimonial.position}</p>
+            </div>
+          `;
+        }
+
+        function updateDots() {
+          dotsContainer.innerHTML = testimonials.map((_, index) => `
+            <button class="dot w-3 h-3 rounded-full mx-1 transition-all duration-200 ${index === currentIndex ? 'bg-[#d3cd2a]' : 'bg-[#666]'}" 
+                    onclick="goToTestimonial(${index})"></button>
+          `).join('');
+        }
+
+        function goToTestimonial(index) {
+          currentIndex = index;
+          renderTestimonial(currentIndex);
+          updateDots();
+        }
+
+        function nextTestimonial() {
+          currentIndex = (currentIndex + 1) % testimonials.length;
+          goToTestimonial(currentIndex);
+        }
+
+        function prevTestimonial() {
+          currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+          goToTestimonial(currentIndex);
+        }
+
+        // Event listeners
+        nextBtn.addEventListener('click', nextTestimonial);
+        prevBtn.addEventListener('click', prevTestimonial);
+
+        // Auto-advance testimonials
+        setInterval(nextTestimonial, 5000);
+
+        // Initialize
+        renderTestimonial(currentIndex);
+        updateDots();
+
+        // Make goToTestimonial globally accessible
+        window.goToTestimonial = goToTestimonial;
+
+        // Add hover effects to stats
+        document.querySelectorAll('.stat-item').forEach(item => {
+          item.addEventListener('mouseenter', function() {
+            this.classList.add('scale-105', 'transition-transform');
+          });
+          
+          item.addEventListener('mouseleave', function() {
+            this.classList.remove('scale-105');
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="relative flex size-full min-h-screen flex-col bg-black dark group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-gray-800 px-10 py-3">
+          <div class="flex items-center gap-4 text-white">
+            <div class="size-10">
+              <img src="logo.svg" alt="WebWizard Logo" class="w-full h-full">
+            </div>
+            <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">
+              <a href="index.html">WebWizard</a>
+            </h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-white text-sm font-medium leading-normal hover:text-yellow-400 transition-colors duration-200" href="index.html">Home</a>
+              <a class="text-white text-sm font-medium leading-normal hover:text-yellow-400 transition-colors duration-200" href="services.html">Services</a>
+              <a class="text-white text-sm font-medium leading-normal hover:text-yellow-400 transition-colors duration-200" href="portfolio.html">Portfolio</a>
+              <a class="text-white text-sm font-medium leading-normal hover:text-yellow-400 transition-colors duration-200 border-b-2 border-yellow-400" href="testimonials.html">Testimonials</a>
+              <a class="text-white text-sm font-medium leading-normal hover:text-yellow-400 transition-colors duration-200" href="contact.html">Contact</a>
+            </div>
+            <a
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-yellow-400 text-black text-sm font-bold leading-normal tracking-[0.015em] hover:bg-yellow-300 transition-colors duration-200 transform hover:scale-105 dynamic-btn"
+              href="contact.html"
+            >
+              <span class="truncate">Get Started</span>
+            </a>
+          </div>
+        </header>
+        
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <!-- Header Section -->
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <div class="flex min-w-72 flex-col gap-3">
+                <p class="text-white text-4xl font-black leading-tight tracking-[-0.033em]">Client Testimonials</p>
+                <p class="text-[#c3c297] text-base font-normal leading-normal">
+                  Don't just take our word for it. Here's what our clients have to say about working with WebWizard.
+                </p>
+              </div>
+            </div>
+            
+            <!-- Stats Section -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-4 mb-8">
+              <div class="stat-item bg-[#444327] rounded-xl p-6 text-center cursor-pointer">
+                <div class="text-[#d3cd2a] text-3xl font-bold mb-2">150+</div>
+                <div class="text-white text-lg font-medium">Projects Completed</div>
+              </div>
+              <div class="stat-item bg-[#444327] rounded-xl p-6 text-center cursor-pointer">
+                <div class="text-[#d3cd2a] text-3xl font-bold mb-2">98%</div>
+                <div class="text-white text-lg font-medium">Client Satisfaction</div>
+              </div>
+              <div class="stat-item bg-[#444327] rounded-xl p-6 text-center cursor-pointer">
+                <div class="text-[#d3cd2a] text-3xl font-bold mb-2">5.0</div>
+                <div class="text-white text-lg font-medium">Average Rating</div>
+              </div>
+            </div>
+            
+            <!-- Testimonials Carousel -->
+            <div class="relative p-4">
+              <div id="testimonialContainer" class="mb-8">
+                <!-- Testimonials will be rendered here -->
+              </div>
+              
+              <!-- Navigation -->
+              <div class="flex justify-center items-center gap-4">
+                <button id="prevBtn" class="bg-[#444327] text-white p-3 rounded-full hover:bg-[#d3cd2a] hover:text-[#202013] transition-all duration-200">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                  </svg>
+                </button>
+                
+                <div id="dotsContainer" class="flex">
+                  <!-- Dots will be rendered here -->
+                </div>
+                
+                <button id="nextBtn" class="bg-[#444327] text-white p-3 rounded-full hover:bg-[#d3cd2a] hover:text-[#202013] transition-all duration-200">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Featured Reviews -->
+            <div class="mt-12 p-4">
+              <h2 class="text-white text-2xl font-bold mb-6 text-center">Featured Reviews</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-[#444327] rounded-xl p-6">
+                  <div class="flex items-center mb-4">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face" alt="David Thompson" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                      <h3 class="text-white font-bold">David Thompson</h3>
+                      <p class="text-[#d3cd2a] text-sm">CTO, DataCorp</p>
+                    </div>
+                  </div>
+                  <div class="text-yellow-400 mb-3">★★★★★</div>
+                  <p class="text-[#c3c297] text-sm">"The data analytics AI they developed for us provides insights we never thought possible. It's like having a team of data scientists working 24/7."</p>
+                </div>
+                
+                <div class="bg-[#444327] rounded-xl p-6">
+                  <div class="flex items-center mb-4">
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=60&h=60&fit=crop&crop=face" alt="Sarah Johnson" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                      <h3 class="text-white font-bold">Sarah Johnson</h3>
+                      <p class="text-[#d3cd2a] text-sm">CEO, TechStart Inc.</p>
+                    </div>
+                  </div>
+                  <div class="text-yellow-400 mb-3">★★★★★</div>
+                  <p class="text-[#c3c297] text-sm">"WebWizard transformed our business with their innovative e-commerce platform. Our online sales increased by 300% within the first quarter!"</p>
+                </div>
+              </div>
+            </div>
+            
+
+          </div>
+        </div>
+        
+        <footer class="flex justify-center">
+          <div class="flex max-w-[960px] flex-1 flex-col">
+            <footer class="flex flex-col gap-6 px-5 py-10 text-center @container">
+              <div class="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-around">
+                <a class="text-[#c3c297] text-base font-normal leading-normal min-w-40 hover:text-[#d3cd2a] transition-colors duration-200" href="privacy.html">Privacy Policy</a>
+                <a class="text-[#c3c297] text-base font-normal leading-normal min-w-40 hover:text-[#d3cd2a] transition-colors duration-200" href="terms.html">Terms of Service</a>
+              </div>
+              <p class="text-[#c3c297] text-base font-normal leading-normal">© 2024 WebWizard. All rights reserved.</p>
+            </footer>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html> 
