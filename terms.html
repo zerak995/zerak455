@@ -1,0 +1,254 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>WebWizard - Terms of Service</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Add smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+              target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          });
+        });
+
+        // Add hover effects to sections
+        document.querySelectorAll('.terms-section').forEach(section => {
+          section.addEventListener('mouseenter', function() {
+            this.classList.add('scale-[1.02]', 'transition-transform');
+          });
+          
+          section.addEventListener('mouseleave', function() {
+            this.classList.remove('scale-[1.02]');
+          });
+        });
+      });
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relative flex size-full min-h-screen flex-col bg-black dark group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="main-header flex items-center justify-between whitespace-nowrap border-b border-solid border-b-gray-800 px-10 py-3 sticky top-0 z-50 bg-black bg-opacity-95 backdrop-blur">
+          <div class="header-logo size-10">
+              <img src="logo.svg" alt="WebWizard Logo" class="w-full h-full">
+          </div>
+          <span class="header-site-name text-white text-lg font-bold leading-tight tracking-[-0.015em]"><a href="index.html">WebWizard</a></span>
+          <nav class="flex flex-1 justify-end gap-8 desktop-nav">
+            <div class="flex items-center gap-9">
+              <a class="text-white text-sm font-medium leading-normal hover:text-yellow-400 transition-colors duration-200" href="index.html">Home</a>
+              <a class="text-white text-sm font-medium leading-normal hover:text-yellow-400 transition-colors duration-200" href="services.html">Services</a>
+              <a class="text-white text-sm font-medium leading-normal hover:text-yellow-400 transition-colors duration-200" href="portfolio.html">Portfolio</a>
+              <a class="text-white text-sm font-medium leading-normal hover:text-yellow-400 transition-colors duration-200" href="testimonials.html">Testimonials</a>
+              <a class="text-white text-sm font-medium leading-normal hover:text-yellow-400 transition-colors duration-200" href="contact.html">Contact</a>
+            </div>
+            <a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-yellow-400 text-black text-sm font-bold leading-normal tracking-[0.015em] hover:bg-yellow-300 dynamic-btn" href="contact.html">
+              <span class="truncate" style="color: #000">Get Started</span>
+            </a>
+          </nav>
+          <div class="hamburger" id="hamburgerBtn" aria-label="Open menu" tabindex="0">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </header>
+        <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+        <nav class="mobile-nav" id="mobileNav">
+          <button class="close-btn" id="closeMobileNav" aria-label="Close menu">&times;</button>
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="testimonials.html">Testimonials</a>
+          <a href="contact.html">Contact</a>
+          <a href="contact.html" class="mt-6 bg-yellow-400 text-black px-4 py-2 rounded-full font-bold text-center">Get Started</a>
+        </nav>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var hamburger = document.getElementById('hamburgerBtn');
+          var mobileNav = document.getElementById('mobileNav');
+          var overlay = document.getElementById('mobileNavOverlay');
+          var closeBtn = document.getElementById('closeMobileNav');
+          function openMenu() {
+            mobileNav.classList.add('open');
+            overlay.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+          }
+          function closeMenu() {
+            mobileNav.classList.remove('open');
+            overlay.style.display = 'none';
+            document.body.style.overflow = '';
+          }
+          hamburger.addEventListener('click', openMenu);
+          closeBtn.addEventListener('click', closeMenu);
+          overlay.addEventListener('click', closeMenu);
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeMenu();
+          });
+        });
+        </script>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <p class="text-white tracking-light text-[32px] font-bold leading-tight min-w-72">Terms of Service</p>
+            </div>
+            
+            <div class="space-y-6 px-4">
+              <div class="terms-section bg-gray-800 rounded-xl p-6">
+                <h2 class="text-yellow-400 text-xl font-bold mb-4">Last Updated: July 8, 2024</h2>
+                <p class="text-white text-base leading-relaxed mb-4">
+                  These Terms of Service ("Terms") govern your use of WebWizard's website and services. By accessing or using our services, you agree to be bound by these Terms.
+                </p>
+              </div>
+
+              <div class="terms-section bg-gray-800 rounded-xl p-6">
+                <h3 class="text-yellow-400 text-lg font-bold mb-3">Acceptance of Terms</h3>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                  By accessing our website or using our services, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree to these Terms, please do not use our services.
+                </p>
+              </div>
+
+              <div class="terms-section bg-gray-800 rounded-xl p-6">
+                <h3 class="text-yellow-400 text-lg font-bold mb-3">Services Description</h3>
+                <p class="text-gray-300 text-sm leading-relaxed mb-3">
+                  WebWizard provides web development, design, and digital marketing services including but not limited to:
+                </p>
+                <ul class="text-gray-300 text-sm leading-relaxed space-y-2">
+                  <li>• Website design and development</li>
+                  <li>• E-commerce solutions</li>
+                  <li>• Mobile app development</li>
+                  <li>• Digital marketing services</li>
+                  <li>• SEO optimization</li>
+                  <li>• Website maintenance and support</li>
+                </ul>
+              </div>
+
+              <div class="terms-section bg-gray-800 rounded-xl p-6">
+                <h3 class="text-yellow-400 text-lg font-bold mb-3">User Responsibilities</h3>
+                <p class="text-gray-300 text-sm leading-relaxed mb-3">
+                  When using our services, you agree to:
+                </p>
+                <ul class="text-gray-300 text-sm leading-relaxed space-y-2">
+                  <li>• Provide accurate and complete information</li>
+                  <li>• Maintain the security of your account</li>
+                  <li>• Not use our services for illegal purposes</li>
+                  <li>• Not interfere with the operation of our website</li>
+                  <li>• Respect intellectual property rights</li>
+                </ul>
+              </div>
+
+              <div class="terms-section bg-gray-800 rounded-xl p-6">
+                <h3 class="text-yellow-400 text-lg font-bold mb-3">Payment Terms</h3>
+                <div class="space-y-3">
+                  <div>
+                    <h4 class="text-white font-semibold mb-2">Pricing</h4>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                      All prices are quoted in USD unless otherwise specified. Prices are subject to change with notice.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="text-white font-semibold mb-2">Payment Schedule</h4>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                      Payment terms will be specified in individual project agreements. Typically, we require a deposit before work begins.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="text-white font-semibold mb-2">Late Payments</h4>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                      Late payments may result in suspension of services and may incur additional fees.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="terms-section bg-gray-800 rounded-xl p-6">
+                <h3 class="text-yellow-400 text-lg font-bold mb-3">Intellectual Property</h3>
+                <div class="space-y-3">
+                  <div>
+                    <h4 class="text-white font-semibold mb-2">Our Rights</h4>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                      All content on our website, including text, graphics, logos, and software, is our property and is protected by copyright laws.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="text-white font-semibold mb-2">Client Rights</h4>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                      Upon full payment, clients receive ownership of custom-developed websites and content created specifically for their project.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="terms-section bg-gray-800 rounded-xl p-6">
+                <h3 class="text-yellow-400 text-lg font-bold mb-3">Limitation of Liability</h3>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                  WebWizard shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our services. Our total liability shall not exceed the amount paid for the specific service.
+                </p>
+              </div>
+
+              <div class="terms-section bg-gray-800 rounded-xl p-6">
+                <h3 class="text-yellow-400 text-lg font-bold mb-3">Termination</h3>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                  Either party may terminate services with written notice. Upon termination, you remain responsible for payment of services rendered up to the termination date.
+                </p>
+              </div>
+
+              <div class="terms-section bg-gray-800 rounded-xl p-6">
+                <h3 class="text-yellow-400 text-lg font-bold mb-3">Governing Law</h3>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                  These Terms shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of law provisions.
+                </p>
+              </div>
+
+              <div class="terms-section bg-gray-800 rounded-xl p-6">
+                <h3 class="text-yellow-400 text-lg font-bold mb-3">Changes to Terms</h3>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                  We reserve the right to modify these Terms at any time. Changes will be effective immediately upon posting. Your continued use of our services constitutes acceptance of the modified Terms.
+                </p>
+              </div>
+
+              <div class="terms-section bg-gray-800 rounded-xl p-6">
+                <h3 class="text-yellow-400 text-lg font-bold mb-3">Contact Information</h3>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                  If you have any questions about these Terms of Service, please contact us at:
+                </p>
+                <div class="mt-3 text-gray-300 text-sm">
+                  <p>Email: legal@webwizard.com</p>
+                  <p>Phone: (555) 123-4567</p>
+                  <p>Address: 123 Innovation Drive, Tech City, CA 90210</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="flex justify-center">
+          <div class="flex max-w-[960px] flex-1 flex-col">
+            <footer class="flex flex-col gap-6 px-5 py-10 text-center @container">
+              <div class="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-around">
+                <a class="text-[#c3c297] text-base font-normal leading-normal min-w-40 hover:text-[#d3cd2a] transition-colors duration-200" href="privacy.html">Privacy Policy</a>
+                <a class="text-yellow-400 text-base font-bold leading-normal min-w-40" href="terms.html">Terms of Service</a>
+              </div>
+              <p class="text-[#c3c297] text-base font-normal leading-normal">© 2024 WebWizard. All rights reserved.</p>
+            </footer>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html> 
